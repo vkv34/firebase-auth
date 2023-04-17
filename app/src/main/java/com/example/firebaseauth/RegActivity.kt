@@ -104,9 +104,12 @@ private fun reg(
         .addOnSuccessListener {
             val user = firebase.currentUser
             Toast.makeText(context, "Успешная регистрация", Toast.LENGTH_SHORT).show()
-            user?.let {
-                it.email?.let { email ->
+            user?.let { firebaseUser ->
+                firebaseUser.email?.let { email ->
                     Paper.book("book").write("User", User(email, password))
+                    FireRepo().addUser(User(email, password), onFailure = {
+                        Toast.makeText(context, it.localizedMessage, Toast.LENGTH_SHORT).show()
+                    })
                 }
             }
             onSuccess?.invoke()

@@ -2,4 +2,5 @@
     <string name="app_name">FireBaseAuth</string>
     <string name="title_activity_auth">AuthActivity</string>
     <string name="title_activity_reg">RegActivity</string>
+    <string name="title_activity_note_detail">NoteDetailActivity</string>
 </resources>
